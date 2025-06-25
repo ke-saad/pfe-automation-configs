@@ -1,0 +1,13 @@
+# Ignore everything by default
+*
+
+# But explicitly allow these specific files and file types
+!/.gitignore
+!*.yml
+!*.yaml
+!*.properties
+!README.md
+
+# Also re-include directories so git can scan them
+# This is not strictly necessary if you don't have subdirectories, but it's good practice.
+!*/
