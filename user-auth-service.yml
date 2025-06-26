@@ -3,6 +3,9 @@ server:
   servlet:
     context-path: /ws
 
+cxf:
+  path: /
+
 security:
   jwt:
     secret: OurPfeKey2019@@##'HpS
