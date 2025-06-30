@@ -1,0 +1,6 @@
+server:
+  port: 8080
+
+auth-service:
+  wsdl-location: http://user-auth-service/ws/auth?wsdl
+  namespace: http://hps.com/pfe/auth
