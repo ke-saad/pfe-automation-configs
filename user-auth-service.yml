@@ -5,8 +5,3 @@ server:
 
 cxf:
   path: /services
-
-security:
-  jwt:
-    secret: OurPfeKey2019@@##'HpS
-    expiration-ms: 3600000

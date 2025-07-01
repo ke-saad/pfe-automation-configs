@@ -26,3 +26,8 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+security:
+  jwt:
+    secret: OurPfeKey2019@@##'HpS
+    expiration-ms: 3600000
