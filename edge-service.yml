@@ -4,3 +4,7 @@ server:
 auth-service:
   wsdl-location: http://localhost:8083/ws/services/auth?wsdl
   namespace: http://hps.com/pfe/auth
+
+corporate-service:
+  wsdl-location: http://localhost:8084/ws/services/corporate?wsdl
+  namespace: http://hps.com/pfe/corporate
