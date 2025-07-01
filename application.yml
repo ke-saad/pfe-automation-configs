@@ -5,13 +5,21 @@ eureka:
 
 spring:
   datasource:
-    url: jdbc:oracle:thin:@localhost:1521/XEPDB1
-    username: test_automation_user
-    password: "1234"
-    driver-class-name: oracle.jdbc.OracleDriver
+    # oracle configuration
+    # url: jdbc:oracle:thin:@localhost:1521/XEPDB1
+    # username: test_automation_user
+    # password: "1234"
+    # driver-class-name: oracle.jdbc.OracleDriver
+
+    # H2 configuration
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=Oracle
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
 
   jpa:
-    database-platform: org.hibernate.dialect.OracleDialect
+    # database-platform: org.hibernate.dialect.OracleDialect
+    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
     show-sql: true
