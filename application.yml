@@ -11,27 +11,30 @@ eureka:
 
 spring:
   datasource:
-    # Oracle configuration (uncomment when using Oracle)
+    # Oracle configuration (active)
     url: jdbc:oracle:thin:@localhost:1521/XEPDB1
     username: test_automation_user
     password: "1234"
     driver-class-name: oracle.jdbc.OracleDriver
 
-    # H2 configuration (for in-memory dev)
+    # H2 configuration (for in-memory dev; commented out)
     # url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=Oracle
     # driver-class-name: org.h2.Driver
     # username: sa
     # password:
 
   jpa:
-    # database-platform: org.hibernate.dialect.OracleDialect
-    database-platform: org.hibernate.dialect.H2Dialect
+    # Oracle dialect (active)
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+    # H2 dialect (commented out)
+    # database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
     show-sql: true
     properties:
       hibernate:
         format_sql: true
+        default_schema: TEST_AUTOMATION_USER
 
 security:
   jwt:
