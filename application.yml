@@ -23,16 +23,6 @@ spring:
     username: sa
     password:
 
-  cloud:
-    gateway:
-      routes:
-        - id: h2-console
-          uri: http://localhost:8084 # corporate-management-service
-          predicates:
-            - Path=/h2-console/** # incoming on edge
-          filters:
-            - RewritePath=/h2-console/(?<path>.*), /ws/h2-console/${path}
-
   jpa:
     # database-platform: org.hibernate.dialect.OracleDialect
     database-platform: org.hibernate.dialect.H2Dialect
@@ -47,3 +37,11 @@ security:
   jwt:
     secret: OurPfeKey2019@@##'HpS
     expiration-ms: 3600000
+
+zuul:
+  routes:
+    h2-console:
+      path: /h2-console/**
+      url: http://localhost:8084/ws/h2-console
+server:
+  port: 8082
