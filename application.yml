@@ -23,6 +23,16 @@ spring:
     username: sa
     password:
 
+  cloud:
+    gateway:
+      routes:
+        - id: h2-console
+          uri: http://localhost:8084 # corporate-management-service
+          predicates:
+            - Path=/h2-console/** # incoming on edge
+          filters:
+            - RewritePath=/h2-console/(?<path>.*), /ws/h2-console/${path}
+
   jpa:
     # database-platform: org.hibernate.dialect.OracleDialect
     database-platform: org.hibernate.dialect.H2Dialect
