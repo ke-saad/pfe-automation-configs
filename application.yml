@@ -25,7 +25,7 @@ spring:
 
   jpa:
     # Oracle dialect (active)
-    database-platform: org.hibernate.dialect.Oracle12cDialect
+    database-platform: org.hibernate.dialect.OraclecDialect
     # H2 dialect (commented out)
     # database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
