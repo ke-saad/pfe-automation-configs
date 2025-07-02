@@ -37,11 +37,3 @@ security:
   jwt:
     secret: OurPfeKey2019@@##'HpS
     expiration-ms: 3600000
-
-zuul:
-  routes:
-    h2-console:
-      path: /h2-console/**
-      url: http://localhost:8084/ws/h2-console
-server:
-  port: 8082
