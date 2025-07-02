@@ -24,10 +24,8 @@ spring:
     # password:
 
   jpa:
-    # Oracle dialect (active)
-    database-platform: org.hibernate.dialect.OraclecDialect
-    # H2 dialect (commented out)
-    # database-platform: org.hibernate.dialect.H2Dialect
+    # The database-platform line was here. It has been removed to allow
+    # Spring Boot to automatically detect the correct dialect.
     hibernate:
       ddl-auto: update
     show-sql: true
