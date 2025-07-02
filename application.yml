@@ -1,3 +1,8 @@
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
 eureka:
   client:
     service-url:
@@ -5,13 +10,13 @@ eureka:
 
 spring:
   datasource:
-    # oracle configuration
+    # Oracle configuration (uncomment when using Oracle)
     # url: jdbc:oracle:thin:@localhost:1521/XEPDB1
     # username: test_automation_user
     # password: "1234"
     # driver-class-name: oracle.jdbc.OracleDriver
 
-    # H2 configuration
+    # H2 configuration (for in-memory dev)
     url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=Oracle
     driver-class-name: org.h2.Driver
     username: sa
