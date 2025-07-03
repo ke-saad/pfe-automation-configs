@@ -1,47 +1,85 @@
+# ===================================================================
+#                      GENERIC CONFIGURATION
+# ===================================================================
 logging:
   level:
+    # Use these for debugging SQL queries and their parameters
     org.hibernate.SQL: DEBUG
     org.hibernate.type.descriptor.sql: TRACE
+    # Your application's log level
     com.hps.pfe.corporate: DEBUG
-    # org.hibernate.type.descriptor.sql.BasicBinder: TRACE
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 
-spring:
-  datasource:
-    # Oracle configuration (inactive)
-    # url: jdbc:oracle:thin:@localhost:1521/XEPDB1
-    # username: test_automation_user
-    # password: "1234"
-    # driver-class-name: oracle.jdbc.OracleDriver
-
-    # H2 configuration (for in-memory dev)
-    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=Oracle;IGNORECASE=TRUE
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
-
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
-
-  jpa:
-    # The database-platform line was here. It has been removed to allow
-    # Spring Boot to automatically detect the correct dialect.
-    database-platform: org.hibernate.dialect.H2Dialect
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
-        # default_schema: TEST_AUTOMATION_USER (this will be used when reverting back to oracle db)
-
 security:
   jwt:
     secret: OurPfeKey2019@@##'HpS
     expiration-ms: 3600000
+
+# ===================================================================
+#                     DATABASE CONFIGURATION
+# -------------------------------------------------------------------
+# Instructions:
+# To switch databases, comment out the active section below
+# and uncomment the section for the database you want to use.
+# ===================================================================
+spring:
+  # === ACTIVE CONFIGURATION: SQLite (File-based) ===
+  # Data will be stored in a file named 'pfe_dev.db' in the project root
+  # and will persist between application restarts.
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite:pfe_dev.db
+    username:
+    password:
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    # We use logging for SQL, so 'show-sql' is set to false to avoid duplicates.
+    show-sql: false
+
+  # === H2 (In-Memory) - COMMENTED OUT ===
+  # To use H2, comment out the SQLite section above and uncomment this entire block.
+  #
+  # datasource:
+  #   url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=Oracle;IGNORECASE=TRUE
+  #   driver-class-name: org.h2.Driver
+  #   username: sa
+  #   password:
+  # h2:
+  #   console:
+  #     enabled: true
+  #     path: /h2-console
+  # jpa:
+  #   database-platform: org.hibernate.dialect.H2Dialect
+  #   hibernate:
+  #     ddl-auto: update
+  #   properties:
+  #     hibernate:
+  #       format_sql: true
+  #   show-sql: false # Using logger instead
+
+  # === ORACLE (Remote DB) - COMMENTED OUT ===
+  # To use Oracle, comment out the SQLite section above and uncomment this entire block.
+  #
+  # datasource:
+  #   url: jdbc:oracle:thin:@localhost:1521/XEPDB1
+  #   username: test_automation_user
+  #   password: "1234"
+  #   driver-class-name: oracle.jdbc.OracleDriver
+  # jpa:
+  #   database-platform: org.hibernate.dialect.OracleDialect
+  #   hibernate:
+  #     ddl-auto: update # Use 'validate' or 'none' for production/shared Oracle DBs
+  #   properties:
+  #     hibernate:
+  #       format_sql: true
+  #       default_schema: TEST_AUTOMATION_USER
+  #   show-sql: false # Using logger instead
