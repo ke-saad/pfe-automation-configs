@@ -9,18 +9,40 @@ corporate-service:
   wsdl-location: http://localhost:8084/ws/services/corporate?wsdl
   namespace: http://hps.com/pfe/corporate
 
-springdoc:
-  api-docs:
-    path: /api-docs
-  swagger-ui:
-    path: /swagger-ui.html
-  info:
-    title: "Credit Test Automation - Edge Service API"
-    description: "This is the REST API gateway (BFF) for the PFE Credit Test Automation application. It translates REST calls to downstream SOAP services."
-    version: "1.0.0-SNAPSHOT"
-    contact:
-      name: "Dev Team"
-      email: "dev@hps.com"
-  servers:
-    - url: http://localhost:8082
-      description: "Local Development Server"
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: auth-rest
+          uri: lb://USER-AUTH-SERVICE
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - StripPrefix=1
+
+        - id: auth-soap
+          uri: lb://USER-AUTH-SERVICE
+          predicates:
+            - Path=/ws/services/auth/**
+          filters:
+            - StripPrefix=3
+
+        - id: corporate-rest
+          uri: lb://CORPORATE-SERVICE
+          predicates:
+            - Path=/api/corporates/**
+          filters:
+            - StripPrefix=1
+
+        - id: corporate-soap
+          uri: lb://CORPORATE-SERVICE
+          predicates:
+            - Path=/ws/services/corporate/**
+          filters:
+            - StripPrefix=3
+
+  springdoc:
+    api-docs:
+      path: /api-docs
+    swagger-ui:
+      path: /swagger-ui
