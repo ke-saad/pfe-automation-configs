@@ -11,28 +11,29 @@ eureka:
 
 spring:
   datasource:
-    # Oracle configuration (active)
+    # Oracle configuration (inactive)
     # url: jdbc:oracle:thin:@localhost:1521/XEPDB1
     # username: test_automation_user
     # password: "1234"
     # driver-class-name: oracle.jdbc.OracleDriver
 
-    # H2 configuration (for in-memory dev; commented out)
-    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=Oracle
+    # H2 configuration (for in-memory dev)
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=Oracle;IGNORECASE=TRUE
+    driver-class-name: org.h2.Driver
     username: sa
     password:
-    driver-class-name: org.h2.Driver
 
   jpa:
     # The database-platform line was here. It has been removed to allow
     # Spring Boot to automatically detect the correct dialect.
+    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
     show-sql: true
     properties:
       hibernate:
         format_sql: true
-        # default_schema: TEST_AUTOMATION_USER
+        # default_schema: TEST_AUTOMATION_USER (this will be used when reverting back to oracle db)
 
 security:
   jwt:
