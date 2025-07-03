@@ -3,33 +3,11 @@ server:
   servlet:
     context-path: /ws
 
-logging:
-  level:
-    org.hibernate.SQL: DEBUG
-    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
-    com.hps.pfe.corporate: DEBUG
-
 cxf:
   path: /services
 
-spring:
-  datasource:
-    url: jdbc:oracle:thin:@localhost:1521/XEPDB1
-    username: test_automation_user
-    password: "1234"
-    driver-class-name: oracle.jdbc.OracleDriver
-
-    # H2 fallback (commented)
-    # url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=Oracle
-    # driver-class-name: org.h2.Driver
-    # username: sa
-    # password:
-
-  jpa:
-    # database-platform: org.hibernate.dialect.Oracle12cDialect
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
+# The logging section can be kept if you want specific verbosity for this service,
+# or removed to use the default from application.yml
+logging:
+  level:
+    com.hps.pfe.corporate: DEBUG
