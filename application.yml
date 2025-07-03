@@ -1,8 +1,9 @@
 logging:
   level:
     org.hibernate.SQL: DEBUG
-    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type: TRACE
     com.hps.pfe.corporate: DEBUG
+    # org.hibernate.type.descriptor.sql.BasicBinder: TRACE
 
 eureka:
   client:
