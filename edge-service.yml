@@ -9,6 +9,10 @@ corporate-service:
   wsdl-location: http://localhost:8084/ws/services/corporate?wsdl
   namespace: http://hps.com/pfe/corporate
 
+client-service:
+  wsdl-location: http://localhost:8085/ws/services/client?wsdl
+  namespace: http://hps.com/pfe/client
+
 spring:
   datasource:
     url: jdbc:sqlite:edge-service.db
@@ -51,6 +55,20 @@ spring:
           uri: lb://CORPORATE-SERVICE
           predicates:
             - Path=/ws/services/corporate/**
+          filters:
+            - StripPrefix=3
+
+        - id: client-rest
+          uri: lb://CLIENT-SERVICE
+          predicates:
+            - Path=/api/clients/**
+          filters:
+            - StripPrefix=1
+
+        - id: client-soap
+          uri: lb://CLIENT-SERVICE
+          predicates:
+            - Path=/ws/services/client/**
           filters:
             - StripPrefix=3
 
