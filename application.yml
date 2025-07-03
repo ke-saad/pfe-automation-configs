@@ -23,6 +23,11 @@ spring:
     username: sa
     password:
 
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
   jpa:
     # The database-platform line was here. It has been removed to allow
     # Spring Boot to automatically detect the correct dialect.
