@@ -21,6 +21,10 @@ card-service:
   wsdl-location: http://localhost:8087/ws/services/card?wsdl
   namespace: http://hps.com/pfe/card
 
+transaction-service:
+  wsdl-location: http://localhost:8089/ws/services/transaction?wsdl
+  namespace: http://hps.com/pfe/transaction
+
 spring:
   datasource:
     url: jdbc:sqlite:edge-service.db
@@ -105,6 +109,20 @@ spring:
           uri: lb://CARD-SERVICE
           predicates:
             - Path=/ws/services/card/**
+          filters:
+            - StripPrefix=3
+
+        - id: transaction-rest
+          uri: lb://TRANSACTION-SERVICE
+          predicates:
+            - Path=/api/transactions/**
+          filters:
+            - StripPrefix=1
+
+        - id: transaction-soap
+          uri: lb://TRANSACTION-SERVICE
+          predicates:
+            - Path=/ws/services/transaction/**
           filters:
             - StripPrefix=3
 
