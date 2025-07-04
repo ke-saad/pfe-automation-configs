@@ -13,6 +13,10 @@ client-service:
   wsdl-location: http://localhost:8085/ws/services/client?wsdl
   namespace: http://hps.com/pfe/client
 
+account-service:
+  wsdl-location: http://localhost:8086/ws/services/account?wsdl
+  namespace: http://hps.com/pfe/account
+
 spring:
   datasource:
     url: jdbc:sqlite:edge-service.db
@@ -69,6 +73,20 @@ spring:
           uri: lb://CLIENT-SERVICE
           predicates:
             - Path=/ws/services/client/**
+          filters:
+            - StripPrefix=3
+
+        - id: account-rest
+          uri: lb://ACCOUNT-SERVICE
+          predicates:
+            - Path=/api/accounts/**
+          filters:
+            - StripPrefix=1
+
+        - id: account-soap
+          uri: lb://ACCOUNT-SERVICE
+          predicates:
+            - Path=/ws/services/accounts/**
           filters:
             - StripPrefix=3
 
