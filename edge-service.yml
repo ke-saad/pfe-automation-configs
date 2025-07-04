@@ -17,6 +17,10 @@ account-service:
   wsdl-location: http://localhost:8086/ws/services/account?wsdl
   namespace: http://hps.com/pfe/account
 
+card-service:
+  wsdl-location: http://localhost:8087/ws/services/card?wsdl
+  namespace: http://hps.com/pfe/card
+
 spring:
   datasource:
     url: jdbc:sqlite:edge-service.db
@@ -86,7 +90,21 @@ spring:
         - id: account-soap
           uri: lb://ACCOUNT-SERVICE
           predicates:
-            - Path=/ws/services/accounts/**
+            - Path=/ws/services/account/**
+          filters:
+            - StripPrefix=3
+
+        - id: card-rest
+          uri: lb://CARD-SERVICE
+          predicates:
+            - Path=/api/cards/**
+          filters:
+            - StripPrefix=1
+
+        - id: card-soap
+          uri: lb://CARD-SERVICE
+          predicates:
+            - Path=/ws/services/card/**
           filters:
             - StripPrefix=3
 
