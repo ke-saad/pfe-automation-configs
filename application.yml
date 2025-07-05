@@ -19,21 +19,30 @@ security:
 
 # ===================================================================
 #                     DATABASE CONFIGURATION
-# -------------------------------------------------------------------
-# This is the active configuration for all services.
-# It uses a separate SQLite file for each service (e.g., corporate-management-service.db).
 # ===================================================================
 spring:
   datasource:
+    #sqlite configuration ======================================
     # Using a dynamic filename based on the service name
-    url: jdbc:sqlite:${spring.application.name}.db
-    driver-class-name: org.sqlite.JDBC
+    # url: jdbc:sqlite:${spring.application.name}.db
+    # driver-class-name: org.sqlite.JDBC
+
+    #oracle configuration ======================================
+    url: jdbc:oracle:thin:@localhost:1521/XEPDB1
+    username: test_automation_user
+    password: "1234"
+    driver-class-name: oracle.jdbc.OracleDriver
+
   jpa:
-    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    #sqlite dialect ======================================
+    # database-platform: org.hibernate.community.dialect.SQLiteDialect
+
+    #oracle dialect ======================================
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+
     hibernate:
       ddl-auto: update
     properties:
       hibernate:
         format_sql: true
-    # We use logging for SQL, so 'show-sql' is set to false to avoid duplicates.
     show-sql: false
