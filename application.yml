@@ -38,7 +38,7 @@ spring:
     # database-platform: org.hibernate.community.dialect.SQLiteDialect
 
     #oracle dialect ======================================
-    database-platform: org.hibernate.dialect.Oracle12cDialect
+    database-platform: org.hibernate.dialect.OracleDialect
 
     hibernate:
       ddl-auto: update
