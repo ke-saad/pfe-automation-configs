@@ -40,91 +40,91 @@ spring:
         format_sql: true
 
   cloud:
-    gateway:
-      routes:
-        - id: auth-rest
-          uri: lb://USER-AUTH-SERVICE
-          predicates:
-            - Path=/api/auth/**
-          filters:
-            - StripPrefix=1
+    # gateway:
+    #   routes:
+    #     - id: auth-rest
+    #       uri: lb://USER-AUTH-SERVICE
+    #       predicates:
+    #         - Path=/api/auth/**
+    #       filters:
+    #         - StripPrefix=1
 
-        - id: auth-soap
-          uri: lb://USER-AUTH-SERVICE
-          predicates:
-            - Path=/ws/services/auth/**
-          filters:
-            - StripPrefix=3
+    #     - id: auth-soap
+    #       uri: lb://USER-AUTH-SERVICE
+    #       predicates:
+    #         - Path=/ws/services/auth/**
+    #       filters:
+    #         - StripPrefix=3
 
-        - id: corporate-rest
-          uri: lb://CORPORATE-SERVICE
-          predicates:
-            - Path=/api/corporates/**
-          filters:
-            - StripPrefix=1
+    #     - id: corporate-rest
+    #       uri: lb://CORPORATE-SERVICE
+    #       predicates:
+    #         - Path=/api/corporates/**
+    #       filters:
+    #         - StripPrefix=1
 
-        - id: corporate-soap
-          uri: lb://CORPORATE-SERVICE
-          predicates:
-            - Path=/ws/services/corporate/**
-          filters:
-            - StripPrefix=3
+    #     - id: corporate-soap
+    #       uri: lb://CORPORATE-SERVICE
+    #       predicates:
+    #         - Path=/ws/services/corporate/**
+    #       filters:
+    #         - StripPrefix=3
 
-        - id: client-rest
-          uri: lb://CLIENT-SERVICE
-          predicates:
-            - Path=/api/clients/**
-          filters:
-            - StripPrefix=1
+    #     - id: client-rest
+    #       uri: lb://CLIENT-SERVICE
+    #       predicates:
+    #         - Path=/api/clients/**
+    #       filters:
+    #         - StripPrefix=1
 
-        - id: client-soap
-          uri: lb://CLIENT-SERVICE
-          predicates:
-            - Path=/ws/services/client/**
-          filters:
-            - StripPrefix=3
+    #     - id: client-soap
+    #       uri: lb://CLIENT-SERVICE
+    #       predicates:
+    #         - Path=/ws/services/client/**
+    #       filters:
+    #         - StripPrefix=3
 
-        - id: account-rest
-          uri: lb://ACCOUNT-SERVICE
-          predicates:
-            - Path=/api/accounts/**
-          filters:
-            - StripPrefix=1
+    #     - id: account-rest
+    #       uri: lb://ACCOUNT-SERVICE
+    #       predicates:
+    #         - Path=/api/accounts/**
+    #       filters:
+    #         - StripPrefix=1
 
-        - id: account-soap
-          uri: lb://ACCOUNT-SERVICE
-          predicates:
-            - Path=/ws/services/account/**
-          filters:
-            - StripPrefix=3
+    #     - id: account-soap
+    #       uri: lb://ACCOUNT-SERVICE
+    #       predicates:
+    #         - Path=/ws/services/account/**
+    #       filters:
+    #         - StripPrefix=3
 
-        - id: card-rest
-          uri: lb://CARD-SERVICE
-          predicates:
-            - Path=/api/cards/**
-          filters:
-            - StripPrefix=1
+    #     - id: card-rest
+    #       uri: lb://CARD-SERVICE
+    #       predicates:
+    #         - Path=/api/cards/**
+    #       filters:
+    #         - StripPrefix=1
 
-        - id: card-soap
-          uri: lb://CARD-SERVICE
-          predicates:
-            - Path=/ws/services/card/**
-          filters:
-            - StripPrefix=3
+    #     - id: card-soap
+    #       uri: lb://CARD-SERVICE
+    #       predicates:
+    #         - Path=/ws/services/card/**
+    #       filters:
+    #         - StripPrefix=3
 
-        - id: transaction-rest
-          uri: lb://TRANSACTION-SERVICE
-          predicates:
-            - Path=/api/transactions/**
-          filters:
-            - StripPrefix=1
+    #     - id: transaction-rest
+    #       uri: lb://TRANSACTION-SERVICE
+    #       predicates:
+    #         - Path=/api/transactions/**
+    #       filters:
+    #         - StripPrefix=1
 
-        - id: transaction-soap
-          uri: lb://TRANSACTION-SERVICE
-          predicates:
-            - Path=/ws/services/transaction/**
-          filters:
-            - StripPrefix=3
+    #     - id: transaction-soap
+    #       uri: lb://TRANSACTION-SERVICE
+    #       predicates:
+    #         - Path=/ws/services/transaction/**
+    #       filters:
+    #         - StripPrefix=3
 
   springdoc:
     api-docs:
