@@ -9,3 +9,6 @@ cxf:
 logging:
   level:
     com.hps.pfe.testexecution: DEBUG
+
+test-scenario-service:
+  wsdl-location: http://localhost:8091/ws/services/testscenario?wsdl

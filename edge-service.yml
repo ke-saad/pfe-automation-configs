@@ -30,7 +30,7 @@ test-execution-service:
   namespace: http://hps.com/pfe/testexecution
 
 test-scenario-service:
-  wsdl-location: http://localhost:8090/ws/services/testscenario?wsdl
+  wsdl-location: http://localhost:8091/ws/services/testscenario?wsdl
   namespace: http://hps.com/pfe/testscenario
 
   # spring:
