@@ -3,7 +3,6 @@
 # ===================================================================
 logging:
   level:
-    # Use these for debugging SQL queries and their parameters
     org.hibernate.SQL: DEBUG
     org.hibernate.type.descriptor.sql: TRACE
 
