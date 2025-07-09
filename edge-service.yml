@@ -1,174 +1,235 @@
 server:
   port: 8082
 
+auth-service:
+  wsdl-base-url: http://localhost:8083/ws/services/auth
+
+corporate-service:
+  wsdl-base-url: http://localhost:8084/ws/services/corporate
+
+client-service:
+  wsdl-base-url: http://localhost:8085/ws/services/client
+
+account-service:
+  wsdl-base-url: http://localhost:8086/ws/services/account
+
+card-service:
+  wsdl-base-url: http://localhost:8087/ws/services/card
+
 entity-management-service:
-  wsdl-base-url: http://localhost:8083/services
+  wsdl-base-url: http://localhost:8088/ws/services
+
+transaction-service:
+  wsdl-base-url: http://localhost:8089/ws/services/transaction
+
+test-execution-service:
+  wsdl-base-url: http://localhost:8090/ws/services/testexecution
+
+test-scenario-service:
+  wsdl-base-url: http://localhost:8091/ws/services/testscenario
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui
+
+
+# server:
+#   port: 8082
+
+# entity-management-service:
+#   wsdl-base-url: http://localhost:8088/ws/services
 
 # auth-service:
-#   wsdl-location: http://localhost:8083/ws/services/auth?wsdl
-#   namespace: http://hps.com/pfe/auth
+#   wsdl-base-url: http://localhost:8083/ws/services
 
 # corporate-service:
-#   wsdl-location: http://localhost:8084/ws/services/corporate?wsdl
-#   namespace: http://hps.com/pfe/corporate
+#   wsdl-base-url: http://localhost:8084/ws/services
 
 # client-service:
-#   wsdl-location: http://localhost:8085/ws/services/client?wsdl
-#   namespace: http://hps.com/pfe/client
+#   wsdl-base-url: http://localhost:8085/ws/services
 
 # account-service:
-#   wsdl-location: http://localhost:8086/ws/services/account?wsdl
-#   namespace: http://hps.com/pfe/account
+#   wsdl-base-url: http://localhost:8086/ws/services
 
 # card-service:
-#   wsdl-location: http://localhost:8087/ws/services/card?wsdl
-#   namespace: http://hps.com/pfe/card
+#   wsdl-base-url: http://localhost:8087/ws/services
 
 # transaction-service:
-#   wsdl-location: http://localhost:8089/ws/services/transaction?wsdl
-#   namespace: http://hps.com/pfe/transaction
+#   wsdl-base-url: http://localhost:8089/ws/services
 
 # test-execution-service:
-#   wsdl-location: http://localhost:8090/ws/services/testexecution?wsdl
-#   namespace: http://hps.com/pfe/testexecution
+#   wsdl-base-url: http://localhost:8090/ws/services
 
 # test-scenario-service:
-#   wsdl-location: http://localhost:8091/ws/services/testscenario?wsdl
-#   namespace: http://hps.com/pfe/testscenario
+#   wsdl-base-url: http://localhost:8091/ws/services
+
+# # auth-service:
+# #   wsdl-location: http://localhost:8083/ws/services/auth?wsdl
+# #   namespace: http://hps.com/pfe/auth
+
+# # corporate-service:
+# #   wsdl-location: http://localhost:8084/ws/services/corporate?wsdl
+# #   namespace: http://hps.com/pfe/corporate
+
+# # client-service:
+# #   wsdl-location: http://localhost:8085/ws/services/client?wsdl
+# #   namespace: http://hps.com/pfe/client
+
+# # account-service:
+# #   wsdl-location: http://localhost:8086/ws/services/account?wsdl
+# #   namespace: http://hps.com/pfe/account
+
+# # card-service:
+# #   wsdl-location: http://localhost:8087/ws/services/card?wsdl
+# #   namespace: http://hps.com/pfe/card
+
+# # transaction-service:
+# #   wsdl-location: http://localhost:8089/ws/services/transaction?wsdl
+# #   namespace: http://hps.com/pfe/transaction
+
+# # test-execution-service:
+# #   wsdl-location: http://localhost:8090/ws/services/testexecution?wsdl
+# #   namespace: http://hps.com/pfe/testexecution
+
+# # test-scenario-service:
+# #   wsdl-location: http://localhost:8091/ws/services/testscenario?wsdl
+# #   namespace: http://hps.com/pfe/testscenario
 
 
 
-  # spring:
-  #   datasource:
-  #     url: jdbc:sqlite:edge-service.db
-  #     driver-class-name: org.sqlite.JDBC
+#   # spring:
+#   #   datasource:
+#   #     url: jdbc:sqlite:edge-service.db
+#   #     driver-class-name: org.sqlite.JDBC
 
-  #   jpa:
-  #     database-platform: org.hibernate.community.dialect.SQLiteDialect
-  #     hibernate:
-  #       ddl-auto: update
-  #     show-sql: true
-  #     properties:
-  #       hibernate:
-  #         format_sql: true
+#   #   jpa:
+#   #     database-platform: org.hibernate.community.dialect.SQLiteDialect
+#   #     hibernate:
+#   #       ddl-auto: update
+#   #     show-sql: true
+#   #     properties:
+#   #       hibernate:
+#   #         format_sql: true
 
-  # cloud:
-  # gateway:
-  #   routes:
-  #     - id: auth-rest
-  #       uri: lb://USER-AUTH-SERVICE
-  #       predicates:
-  #         - Path=/api/auth/**
-  #       filters:
-  #         - StripPrefix=1
+#   # cloud:
+#   # gateway:
+#   #   routes:
+#   #     - id: auth-rest
+#   #       uri: lb://USER-AUTH-SERVICE
+#   #       predicates:
+#   #         - Path=/api/auth/**
+#   #       filters:
+#   #         - StripPrefix=1
 
-  #     - id: auth-soap
-  #       uri: lb://USER-AUTH-SERVICE
-  #       predicates:
-  #         - Path=/ws/services/auth/**
-  #       filters:
-  #         - StripPrefix=3
+#   #     - id: auth-soap
+#   #       uri: lb://USER-AUTH-SERVICE
+#   #       predicates:
+#   #         - Path=/ws/services/auth/**
+#   #       filters:
+#   #         - StripPrefix=3
 
-  #     - id: corporate-rest
-  #       uri: lb://CORPORATE-SERVICE
-  #       predicates:
-  #         - Path=/api/corporates/**
-  #       filters:
-  #         - StripPrefix=1
+#   #     - id: corporate-rest
+#   #       uri: lb://CORPORATE-SERVICE
+#   #       predicates:
+#   #         - Path=/api/corporates/**
+#   #       filters:
+#   #         - StripPrefix=1
 
-  #     - id: corporate-soap
-  #       uri: lb://CORPORATE-SERVICE
-  #       predicates:
-  #         - Path=/ws/services/corporate/**
-  #       filters:
-  #         - StripPrefix=3
+#   #     - id: corporate-soap
+#   #       uri: lb://CORPORATE-SERVICE
+#   #       predicates:
+#   #         - Path=/ws/services/corporate/**
+#   #       filters:
+#   #         - StripPrefix=3
 
-  #     - id: client-rest
-  #       uri: lb://CLIENT-SERVICE
-  #       predicates:
-  #         - Path=/api/clients/**
-  #       filters:
-  #         - StripPrefix=1
+#   #     - id: client-rest
+#   #       uri: lb://CLIENT-SERVICE
+#   #       predicates:
+#   #         - Path=/api/clients/**
+#   #       filters:
+#   #         - StripPrefix=1
 
-  #     - id: client-soap
-  #       uri: lb://CLIENT-SERVICE
-  #       predicates:
-  #         - Path=/ws/services/client/**
-  #       filters:
-  #         - StripPrefix=3
+#   #     - id: client-soap
+#   #       uri: lb://CLIENT-SERVICE
+#   #       predicates:
+#   #         - Path=/ws/services/client/**
+#   #       filters:
+#   #         - StripPrefix=3
 
-  #     - id: account-rest
-  #       uri: lb://ACCOUNT-SERVICE
-  #       predicates:
-  #         - Path=/api/accounts/**
-  #       filters:
-  #         - StripPrefix=1
+#   #     - id: account-rest
+#   #       uri: lb://ACCOUNT-SERVICE
+#   #       predicates:
+#   #         - Path=/api/accounts/**
+#   #       filters:
+#   #         - StripPrefix=1
 
-  #     - id: account-soap
-  #       uri: lb://ACCOUNT-SERVICE
-  #       predicates:
-  #         - Path=/ws/services/account/**
-  #       filters:
-  #         - StripPrefix=3
+#   #     - id: account-soap
+#   #       uri: lb://ACCOUNT-SERVICE
+#   #       predicates:
+#   #         - Path=/ws/services/account/**
+#   #       filters:
+#   #         - StripPrefix=3
 
-  #     - id: card-rest
-  #       uri: lb://CARD-SERVICE
-  #       predicates:
-  #         - Path=/api/cards/**
-  #       filters:
-  #         - StripPrefix=1
+#   #     - id: card-rest
+#   #       uri: lb://CARD-SERVICE
+#   #       predicates:
+#   #         - Path=/api/cards/**
+#   #       filters:
+#   #         - StripPrefix=1
 
-  #     - id: card-soap
-  #       uri: lb://CARD-SERVICE
-  #       predicates:
-  #         - Path=/ws/services/card/**
-  #       filters:
-  #         - StripPrefix=3
+#   #     - id: card-soap
+#   #       uri: lb://CARD-SERVICE
+#   #       predicates:
+#   #         - Path=/ws/services/card/**
+#   #       filters:
+#   #         - StripPrefix=3
 
-  #     - id: transaction-rest
-  #       uri: lb://TRANSACTION-SERVICE
-  #       predicates:
-  #         - Path=/api/transactions/**
-  #       filters:
-  #         - StripPrefix=1
+#   #     - id: transaction-rest
+#   #       uri: lb://TRANSACTION-SERVICE
+#   #       predicates:
+#   #         - Path=/api/transactions/**
+#   #       filters:
+#   #         - StripPrefix=1
 
-  #     - id: transaction-soap
-  #       uri: lb://TRANSACTION-SERVICE
-  #       predicates:
-  #         - Path=/ws/services/transaction/**
-  #       filters:
-  #         - StripPrefix=3
+#   #     - id: transaction-soap
+#   #       uri: lb://TRANSACTION-SERVICE
+#   #       predicates:
+#   #         - Path=/ws/services/transaction/**
+#   #       filters:
+#   #         - StripPrefix=3
 
-  #     - id: test-execution-rest
-  #       uri: lb://TEST-EXECUTION-SERVICE
-  #       predicates:
-  #         - Path=/api/testexecution/**
-  #       filters:
-  #         - StripPrefix=1
+#   #     - id: test-execution-rest
+#   #       uri: lb://TEST-EXECUTION-SERVICE
+#   #       predicates:
+#   #         - Path=/api/testexecution/**
+#   #       filters:
+#   #         - StripPrefix=1
 
-  #     - id: test-execution-soap
-  #       uri: lb://TEST-EXECUTION-SERVICE
-  #       predicates:
-  #         - Path=/ws/services/testexecution/**
-  #       filters:
-  #         - StripPrefix=3
+#   #     - id: test-execution-soap
+#   #       uri: lb://TEST-EXECUTION-SERVICE
+#   #       predicates:
+#   #         - Path=/ws/services/testexecution/**
+#   #       filters:
+#   #         - StripPrefix=3
 
-    #     - id: test-scenario-rest
-  #       uri: lb://TEST-SCENARIO-SERVICE
-  #       predicates:
-  #         - Path=/api/testscenario/**
-  #       filters:
-  #         - StripPrefix=1
+#     #     - id: test-scenario-rest
+#   #       uri: lb://TEST-SCENARIO-SERVICE
+#   #       predicates:
+#   #         - Path=/api/testscenario/**
+#   #       filters:
+#   #         - StripPrefix=1
 
-  #     - id: test-scenario-soap
-  #       uri: lb://TEST-SCENARIO-SERVICE
-  #       predicates:
-  #         - Path=/ws/services/testscenario/**
-  #       filters:
-  #         - StripPrefix=3
+#   #     - id: test-scenario-soap
+#   #       uri: lb://TEST-SCENARIO-SERVICE
+#   #       predicates:
+#   #         - Path=/ws/services/testscenario/**
+#   #       filters:
+#   #         - StripPrefix=3
 
-  springdoc:
-    api-docs:
-      path: /api-docs
-    swagger-ui:
-      path: /swagger-ui
+#   springdoc:
+#     api-docs:
+#       path: /api-docs
+#     swagger-ui:
+#       path: /swagger-ui

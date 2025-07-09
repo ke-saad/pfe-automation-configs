@@ -1,5 +1,5 @@
 server:
-  port: 8088
+  port: 8089
   servlet:
     context-path: /ws
 
@@ -8,4 +8,4 @@ cxf:
 
 logging:
   level:
-    com.hps.pfe: DEBUG
+    com.hps.pfe.transaction: DEBUG
