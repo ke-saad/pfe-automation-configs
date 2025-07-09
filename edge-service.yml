@@ -1,37 +1,42 @@
 server:
   port: 8082
 
-auth-service:
-  wsdl-location: http://localhost:8083/ws/services/auth?wsdl
-  namespace: http://hps.com/pfe/auth
+entity-management-service:
+  wsdl-base-url: http://localhost:8088/services
+  
+# auth-service:
+#   wsdl-location: http://localhost:8083/ws/services/auth?wsdl
+#   namespace: http://hps.com/pfe/auth
 
-corporate-service:
-  wsdl-location: http://localhost:8084/ws/services/corporate?wsdl
-  namespace: http://hps.com/pfe/corporate
+# corporate-service:
+#   wsdl-location: http://localhost:8084/ws/services/corporate?wsdl
+#   namespace: http://hps.com/pfe/corporate
 
-client-service:
-  wsdl-location: http://localhost:8085/ws/services/client?wsdl
-  namespace: http://hps.com/pfe/client
+# client-service:
+#   wsdl-location: http://localhost:8085/ws/services/client?wsdl
+#   namespace: http://hps.com/pfe/client
 
-account-service:
-  wsdl-location: http://localhost:8086/ws/services/account?wsdl
-  namespace: http://hps.com/pfe/account
+# account-service:
+#   wsdl-location: http://localhost:8086/ws/services/account?wsdl
+#   namespace: http://hps.com/pfe/account
 
-card-service:
-  wsdl-location: http://localhost:8087/ws/services/card?wsdl
-  namespace: http://hps.com/pfe/card
+# card-service:
+#   wsdl-location: http://localhost:8087/ws/services/card?wsdl
+#   namespace: http://hps.com/pfe/card
 
-transaction-service:
-  wsdl-location: http://localhost:8089/ws/services/transaction?wsdl
-  namespace: http://hps.com/pfe/transaction
+# transaction-service:
+#   wsdl-location: http://localhost:8089/ws/services/transaction?wsdl
+#   namespace: http://hps.com/pfe/transaction
 
-test-execution-service:
-  wsdl-location: http://localhost:8090/ws/services/testexecution?wsdl
-  namespace: http://hps.com/pfe/testexecution
+# test-execution-service:
+#   wsdl-location: http://localhost:8090/ws/services/testexecution?wsdl
+#   namespace: http://hps.com/pfe/testexecution
 
-test-scenario-service:
-  wsdl-location: http://localhost:8091/ws/services/testscenario?wsdl
-  namespace: http://hps.com/pfe/testscenario
+# test-scenario-service:
+#   wsdl-location: http://localhost:8091/ws/services/testscenario?wsdl
+#   namespace: http://hps.com/pfe/testscenario
+
+
 
   # spring:
   #   datasource:
