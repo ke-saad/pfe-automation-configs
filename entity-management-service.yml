@@ -6,8 +6,6 @@ server:
 cxf:
   path: /services
 
-# The logging section can be kept if you want specific verbosity for this service,
-# or removed to use the default from application.yml
 logging:
   level:
     com.hps.pfe: DEBUG
