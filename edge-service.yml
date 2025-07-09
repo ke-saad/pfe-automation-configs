@@ -2,8 +2,8 @@ server:
   port: 8082
 
 entity-management-service:
-  wsdl-base-url: http://localhost:8088/services
-  
+  wsdl-base-url: http://localhost:8083/services
+
 # auth-service:
 #   wsdl-location: http://localhost:8083/ws/services/auth?wsdl
 #   namespace: http://hps.com/pfe/auth
