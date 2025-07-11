@@ -12,3 +12,9 @@ logging:
 
 test-scenario-service:
   wsdl-location: http://localhost:8091/ws/services/testscenario?wsdl
+
+reporting-service:
+  wsdl-location: http://localhost:8092/ws/services/reporting?wsdl
+
+notification-service:
+  wsdl-location: http://localhost:8093/ws/services/notification?wsdl

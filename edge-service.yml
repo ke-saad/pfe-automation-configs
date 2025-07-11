@@ -31,6 +31,9 @@ test-scenario-service:
 reporting-service:
   wsdl-base-url: http://localhost:8092/ws/services/reporting
 
+notification-service:
+  wsdl-base-url: http://localhost:8093/ws/services/notification
+
 springdoc:
   api-docs:
     path: /api-docs

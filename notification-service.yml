@@ -1,0 +1,19 @@
+server:
+  port: 8093
+
+spring:
+  mail:
+    host: smtp-mail.outlook.com
+    port: 587
+    username: kellalisaad@gmail.com
+    password: "zqnrubwtwhvqkalo"
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+
+reporting-service:
+  wsdl-location: http://localhost:8092/ws/services/reporting?wsdl
+
+logging:
+  level:
+    com.hps.pfe.notification: DEBUG
