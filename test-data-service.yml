@@ -1,0 +1,9 @@
+server:
+  port: 8094
+  servlet:
+    context-path: /ws
+cxf:
+  path: /services
+logging:
+  level:
+    com.hps.pfe.testdata: DEBUG

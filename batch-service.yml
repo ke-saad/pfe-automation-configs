@@ -1,0 +1,9 @@
+server:
+  port: 8095
+
+cxf:
+  path: /services
+
+logging:
+  level:
+    com.hps.pfe.batch: DEBUG
