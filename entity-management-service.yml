@@ -9,3 +9,8 @@ cxf:
 logging:
   level:
     com.hps.pfe: DEBUG
+    org.flywaydb: INFO 
+
+spring:
+  flyway:
+    enabled: true
