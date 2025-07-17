@@ -1,26 +1,8 @@
 server:
   port: 8082
 
-# auth-service:
-#   wsdl-base-url: http://localhost:8083/ws/services/auth
-
-# corporate-service:
-#   wsdl-base-url: http://localhost:8084/ws/services/corporate
-
-# client-service:
-#   wsdl-base-url: http://localhost:8085/ws/services/client
-
-# account-service:
-#   wsdl-base-url: http://localhost:8086/ws/services/account
-
-# card-service:
-#   wsdl-base-url: http://localhost:8087/ws/services/card
-
 entity-management-service:
   wsdl-base-url: http://localhost:8088/ws/services
-
-# transaction-service:
-#   wsdl-base-url: http://localhost:8089/ws/services/transaction
 
 test-execution-service:
   wsdl-base-url: http://localhost:8090/ws/services/testexecution

@@ -1,10 +1,6 @@
-# ===================================================================
-#                      GENERIC CONFIGURATION
-# ===================================================================
 logging:
   level:
-    org.hibernate.SQL: DEBUG
-    org.hibernate.type.descriptor.sql: TRACE
+    com.hps.pfe: DEBUG
 
 eureka:
   client:
@@ -16,32 +12,13 @@ security:
     secret: OurPfeKey2019@@##'HpS
     expiration-ms: 3600000
 
-# ===================================================================
-#                     DATABASE CONFIGURATION
-# ===================================================================
 spring:
   datasource:
-    #sqlite configuration ======================================
-    # Using a dynamic filename based on the service name
-    # url: jdbc:sqlite:${spring.application.name}.db
-    # driver-class-name: org.sqlite.JDBC
-
-    #oracle configuration ======================================
     url: jdbc:oracle:thin:@localhost:1521/XEPDB1
     username: test_automation_user
     password: "1234"
     driver-class-name: oracle.jdbc.OracleDriver
-
-  jpa:
-    #sqlite dialect ======================================
-    # database-platform: org.hibernate.community.dialect.SQLiteDialect
-
-    #oracle dialect ======================================
-    database-platform: org.hibernate.dialect.OracleDialect
-
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        format_sql: true
-    show-sql: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
