@@ -19,6 +19,6 @@ spring:
     password: "1234"
     driver-class-name: oracle.jdbc.OracleDriver
   flyway:
-    enabled: true
+    enabled: false
     locations: classpath:db/migration
     baseline-on-migrate: true
